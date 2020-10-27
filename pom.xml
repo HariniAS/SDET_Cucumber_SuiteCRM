@@ -1,0 +1,212 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>Appium</groupId>
+  <artifactId>SDET_Cucumber_SuiteCRM</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>SDET_Cucumber_SuiteCRM</name>
+  <url>http://maven.apache.org</url>
+
+ <properties>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
+	</properties>
+	
+	<!-- specifies where to publish snapshot or release builds -->
+	<distributionManagement>
+		<repository>
+            <id>pls-ups-releases</id>
+            <name>UPS Releases</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-releases/</url>
+        </repository>
+        
+        <snapshotRepository>
+            <id>pls-ups-snapshots</id>
+            <name>UPS Snapshots</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+    <repositories>
+        <!-- resolve from ups releases and snapshots -->
+        <repository>
+            <id>pls-ups-releases</id>
+            <name>UPS Releases</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-releases/</url>
+        </repository>
+        <repository>
+            <id>pls-ups-snapshots</id>
+            <name>UPS Snapshot</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-snapshots/</url>
+        </repository>
+
+        <!-- resolve all other public dependencies from the proxy to public repositories -->
+        <repository>
+            <id>pls-maven-public</id>
+            <name>PLS Maven Public Proxy</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-proxy/</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <!-- resolve public maven plugins from the proxy to public repositories -->
+        <pluginRepository>
+            <id>pls-maven-public</id>
+            <name>PLS Maven Public Proxy</name>
+            <url>https://nexusrm.ups.com:8443/repository/ups-proxy/</url>
+        </pluginRepository>
+        <!-- if resolving a maven plugin from a private UPS repository add another <pluginRepository> below -->
+    </pluginRepositories>
+	
+		
+	<dependencies>
+	<!--  -->
+
+		<!-- https://mvnrepository.com/artifact/commons-beanutils/commons-beanutils -->
+		<dependency>
+   			<groupId>commons-beanutils</groupId>
+    		<artifactId>commons-beanutils</artifactId>
+		    <version>1.9.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>3.12.0</version>
+		</dependency>
+		<dependency>
+			<groupId>io.appium</groupId>
+			<artifactId>java-client</artifactId>
+			<version>6.1.0</version>  <!-- 7.0.0  6.1.0  6.0.0  6.0.0-BETA5  5.0.0-BETA1-->
+		</dependency>
+		
+			<!-- JUnit -->
+	    <dependency>
+	        <groupId>junit</groupId>
+	        <artifactId>junit</artifactId>
+	        <version>3.8.1</version>
+	        <scope>test</scope>
+	    </dependency>
+		
+		<!-- EMAIL Jar  -->
+		<dependency>
+		    <groupId>javax.mail</groupId>
+		    <artifactId>mail</artifactId>
+		    <version>1.4.7</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/joda-time/joda-time -->
+		<dependency>
+		    <groupId>joda-time</groupId>
+		    <artifactId>joda-time</artifactId>
+		    <version>2.3</version>
+		</dependency>
+		
+		
+		
+		<!-- POI jars for excel connection  -->
+		 <dependency>
+                 <groupId>org.apache.poi</groupId>
+                 <artifactId>poi</artifactId>
+                 <version>4.0.0</version>
+          </dependency>
+          <dependency>
+                 <groupId>org.apache.poi</groupId>
+                 <artifactId>poi-ooxml</artifactId>
+                 <version>3.17</version>
+          </dependency>
+          
+         
+		
+		<!-- Test NG jar -->
+		<dependency>
+			<groupId>org.testng</groupId>
+			<artifactId>testng</artifactId>
+			<version>6.9.10</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/com.relevantcodes/extentreports -->
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.2</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<!-- Dependency for HP ALM QC Integration -->
+		<dependency>
+		    <groupId>org.apache.httpcomponents</groupId>
+		    <artifactId>httpclient</artifactId>
+		    <version>4.5.7</version>
+		</dependency>
+
+		<dependency>
+		    <groupId>com.jayway.jsonpath</groupId>
+		    <artifactId>json-path</artifactId>
+		    <version>2.4.0</version>
+		</dependency>
+		
+		<!-- Dependency for Cucumber -->
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-java</artifactId>
+			<version>6.1.1</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-junit</artifactId>
+			<version>6.6.0</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>io.cucumber</groupId>
+			<artifactId>cucumber-core</artifactId>
+			<version>6.6.0</version>
+		</dependency>
+		
+	</dependencies>
+	
+	
+	
+	
+	<build>
+        <!-- Source directory configuration -->
+        <!-- <sourceDirectory>src</sourceDirectory> -->
+        
+        <plugins>
+            <!-- Following plugin executes the testng tests -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <!-- Suite testng xml file to consider for test execution -->
+                    <suiteXmlFiles>
+        <!--                 <suiteXmlFile>executionSuite.xml</suiteXmlFile> -->
+                        <!-- <suiteXmlFile>D:/Jawahar/SQL/UPS_SeleniumFramework_BKP/UPS_SeleniumFramework/testXML/Billing_en.xml</suiteXmlFile> -->
+						<!-- <suiteXmlFile>suites-test-testng.xml</suiteXmlFile>   -->
+                    </suiteXmlFiles>
+                </configuration>
+            </plugin>
+            <!-- Compiler plugin configures the java version to be usedfor compiling
+                the code -->
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
